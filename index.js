@@ -14,3 +14,5 @@ app.get("/detemp", (req, res)=>{
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, console.log(`Corriendo en puerto: ${PORT}`))
+
+module.exports = app;
