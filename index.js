@@ -28,9 +28,7 @@ app.get("/depart",(req, res)=>{
     })
 })
 
-app.get("/saludo", (req, res) =>{
-    res.json("Hello")
-})
+
 
 const PORT = process.env.PORT || 4000;
 
