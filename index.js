@@ -1,7 +1,14 @@
 const express = require("express");
 const dbConnection = require("./db/db")
+const cors = require("cors")
 
 const app = express()
+
+app.use(cors({
+    origin: "*",
+    methods: ["POST", "GET", "PUT", "DELETE", "HEAD", "PATCH"],
+    credentials: true,
+}))
 
 app.get("/detemp", (req, res)=>{
     const sql = "SELECT * FROM employee";
