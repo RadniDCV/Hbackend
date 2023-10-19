@@ -4,11 +4,7 @@ const cors = require("cors")
 
 const app = express()
 
-app.use(cors({
-    origin: ['https://hfrontend-git-main-radnidcv.vercel.app'], 
-    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
-    credentials: true,
-  }));
+app.use(cors());
   
 app.use(express.json())
 
