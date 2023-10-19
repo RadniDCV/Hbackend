@@ -5,10 +5,12 @@ const cors = require("cors")
 const app = express()
 
 app.use(cors({
-    origin: "*",
-    methods: ["POST", "GET", "PUT", "DELETE", "HEAD", "PATCH"],
+    origin: ['https://hfrontend-git-main-radnidcv.vercel.app'], 
+    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
     credentials: true,
-}))
+  }));
+  
+app.use(express.json())
 
 app.get("/detemp", (req, res)=>{
     const sql = "SELECT * FROM employee";
@@ -16,6 +18,18 @@ app.get("/detemp", (req, res)=>{
         if (err) return res.json({Error: "Error al correr la consulta"})
         return res.json({Status: "Success", Result: result})
     })
+})
+
+app.get("/depart",(req, res)=>{
+    const sql = "SELECT * FROM depart";
+    dbConnection.query(sql, (err, result)=>{
+        if (err) return res.json({Error: "Error al correr la consulta"})
+        return res.json({Status: "Success", Result: result})  
+    })
+})
+
+app.get("/saludo", (req, res) =>{
+    res.json("Hello")
 })
 
 const PORT = process.env.PORT || 4000;
